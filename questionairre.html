@@ -1,0 +1,32 @@
+<html>
+
+<body>
+<div id ="quizMakerForeground" ng-style = "savedPara()">
+<h1 id = 'tester'>Please fill in your quiz based on the template below.</h1>
+
+<h5>Make sure to select the correct answer before continuing to the next question.</h5>
+
+
+<h3 class = "test">Question:  <input type = "text" name = "questionsText"></input></h3>
+
+<h4 class = "answerArea" ng-style = "savedPara()">
+<input type = "radio" name = "answers" value = 0></input><input type = "text" name = "answersText"></input>
+<input type = "radio" name = "answers" value = 1></input><input type = "text" name = "answersText"></input>
+<input type = "radio" name = "answers" value = 2></input><input type = "text" name = "answersText"></input>
+<input type = "radio" name = "answers" value = 3></input><input type = "text" name = "answersText"></input>
+</h4>
+
+<div class = 'buttonContainer'>
+<div class = 'buttonRight' ng-click="page('makeCSS2.html')"> Back </div>
+<div class = 'button' ng-click="collectData()" ng-style = "{'position': 'absolute'}"> Add Question </div>
+<div class = 'buttonLeft' ng-click="possible()"> Review </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="quizCrafterAngular.js"></script>
+
+</div>
+</body>
+
+</html>

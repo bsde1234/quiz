@@ -1,0 +1,22 @@
+<html>
+<head>
+<link rel= "stylesheet" type="text/css" href="quizCrafterCSS.css"></link>
+</head>
+
+<body>
+<div id = "quizMakerForeground">
+<div class = 'buttonContainer'>
+<div class = 'buttonRight'  ng-click = "page('questionairre.html')"> Back to questions </div>
+<div class = 'buttonLeft'  ng-click = "page('printQuiz.html')"> Submit Quiz </div>
+</div>
+
+<div ng-include = 'reviewQuestions.html' onLoad = "printQuestions()" ng-style = 'savedPara()'></div>
+
+</div>
+<script src="quizCrafterAngular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+</body>
+
+</html>

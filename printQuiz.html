@@ -1,0 +1,171 @@
+<html>
+
+<head>
+<link rel= "stylesheet" type="text/css" href="quizCrafterCSS.css"></link>
+<!--  <p>&#60  &#62</p>  -->
+</head>
+
+<body>
+<div id = "quizMakerForeground">
+<h1>Finishing Steps</h1>
+
+<ol>
+<li>Copy the below code.</li>
+<li>Paste the code into a notepad or similar document.</li>
+<li>Save the file as a .html extension.  Example:  quiz.html.</li>
+<li>Host your quiz on your server. Alternatively,  if you do not have 
+access to a web server, you can try opening your saved 
+file in your browser.  It will load as a local web page.</li>
+</ol>
+
+<p>&#60!DOCTYPE html&#62</p>
+<p>&#60html&#62</p>
+
+<p>&#60head&#62</p>
+
+<p>&#60style&#62</p></br>
+.test { </br>
+	box-sizing: border-box; </br>
+	padding: 5px; </br>
+	margin: 25px 10px 0px 10px; </br>
+	color: rgb({{ptRed}},{{ptGreen}},{{ptBlue}}); </br>
+	background-color: rgb({{pbRed}},{{pbGreen}},{{pbBlue}}); </br>
+	width: 80%; </br>
+	position: relative; </br>
+	left: 10%; </br>
+	} </br></br>
+	
+.answerArea { </br>
+	box-sizing: border-box; </br>
+	padding: 5px; </br>
+	margin: 0px 10px 0px 10px; </br>
+	color: rgb({{atRed}},{{atGreen}},{{atBlue}}); </br>
+	background-color: rgb({{abRed}},{{abGreen}},{{abBlue}}); </br>
+	width: 80%; </br>
+	position: relative; </br>
+	left: 10%; </br>
+	} </br></br>
+	
+.score { </br>
+	box-sizing: border-box; </br>
+	padding: 5px; </br>
+	margin: 15px 10px 0px 5px; </br>
+	color: rgb({{ptRed}},{{ptGreen}},{{ptBlue}}); </br>
+	background-color: rgb({{pbRed}},{{pbGreen}},{{pbBlue}}); </br>
+	width: 8%; </br>
+	position: relative; </br>
+	left: 10%; </br>
+	cursor: pointer; </br>
+	border: 1pt solid black; </br>
+	text-align: center; </br>
+	} </br></br>
+	
+#scoreboard { </br>
+	box-sizing: border-box; </br>
+	padding: 5px; </br>
+	margin: 5px 10px 0px 10px; </br>
+	color: #000000; </br>
+	background-color: #FFFFFF; </br>
+	width: 80%; </br>
+	position: relative; </br>
+	left: 10%; </br>
+	} </br></br>
+
+<p>&#60/style&#62</p>
+
+<p>&#60/head&#62</p>
+
+<p>&#60body onload = "loadQuiz()"&#62</p>
+
+<p>&#60div id = "quizArea"&#62&#60/div&#62</p>
+
+<p>&#60script&#62</p>
+
+const questions = {{questionsKey}}; </br>
+const answerList = {{storeAnswersKey}}; </br>
+const key = {{answersKey}}; </br>
+const userKey = []; </br></br>
+
+function loadQuiz () { </br>
+	for (i = 0; i < answerList.length; i++) { </br>
+		document.getElementById("quizArea").innerHTML += </br>
+		"&#60div class = 'test'&#62" + (i+1) + ". " + questions[i] + "&#60/div&#62" + </br>
+		"&#60div class = 'answerArea'&#62" + </br>
+		"&#60input type = 'radio' class = 'answers' + name ='" + i + "'value = 0&#62" + "&#60/input&#62" + </br>
+		answerList[i][0] + "&#60/div&#62";</br>
+		if (typeof answerList[i][1] === "undefined") { </br>
+		} else { </br>
+		document.getElementById("quizArea").innerHTML += </br>
+		"&#60div class = 'answerArea'&#62" + </br>
+		"&#60input type = 'radio' class = 'answers' name ='" + i + "'value = 1&#62" + "&#60/input&#62" + </br>
+		answerList[i][1] + "&#60/div&#62"; </br>
+		if (typeof answerList[i][2] === "undefined") { </br>
+		} else { </br>
+		document.getElementById("quizArea").innerHTML +=
+		"&#60div class = 'answerArea'&#62" + </br>
+		"&#60input type = 'radio' class = 'answers' name ='" + i + "'value = 2&#62" + "&#60/input&#62" + </br>
+		answerList[i][2] + "&#60/div&#62"; </br>
+		if (typeof answerList[i][3] === "undefined") { </br>
+		} else { </br>
+		document.getElementById("quizArea").innerHTML += </br>
+		"&#60div class = 'answerArea'&#62" + </br>
+		"&#60input type = 'radio' class = 'answers' name ='" + i + "'value = 3&#62" + "&#60/input&#62" + </br>
+		answerList[i][3] + "&#60/div&#62"; </br>
+	} </br>
+	} </br>
+	} </br>
+	} </br>
+	document.getElementById("quizArea").innerHTML += </br>
+	"&#60div class = 'score' onclick = 'score()' &#62 Score &#60/div&#62" + </br>
+	"&#60div id = 'scoreboard'&#62&#60/div&#62"; </br>
+} </br></br>
+
+function score () { </br>
+	var correct = 0; </br>
+	var answerLen = 0; </br>
+	var gatherAnswers = document.getElementsByClassName('answerArea'); </br>
+	var gatherQuestions = document.getElementsByClassName('test');</br>
+	var gatherQuest = document.getElementsByClassName('answers'); </br>
+	for (i = 0; i < gatherQuest.length; i++) { </br>
+	if (gatherQuest[i].checked) { </br>
+		userKey.push(gatherQuest[i].value); </br>
+		} </br>
+	} </br>
+	for (j = 0; j < key.length; j++) { </br>
+	var ans = answerLen + parseInt(key[j]); </br>
+	if (key[j] === userKey[j]) { </br>
+		correct += 1; </br>
+		gatherQuestions[j].style.backgroundColor = '#006600'; </br>
+		gatherQuestions[j].style.color = 'white'; </br>
+
+		} </br>
+	if (key[j] !== userKey[j]) { </br>
+		gatherAnswers[ans].style.backgroundColor = "#006600"; </br>
+		gatherAnswers[ans].style.color = 'white'; </br>
+		gatherQuestions[j].style.backgroundColor = '#990000'; </br>
+		gatherQuestions[j].style.color = 'white'; </br>
+		gatherQuestions[j].innerHTML += "&#60/br&#62" + "The correct answer was choice # " + </br>
+		(parseInt(key[j]) + 1); </br>
+	} </br>
+	answerLen += answerList[j].length; </br>
+	} </br>
+	document.getElementById("scoreboard").innerHTML = </br>
+	Math.floor(correct/key.length * 100) + ".	You got " + </br>
+	correct + " out of " + key.length + " correct."; </br>
+	document.getElementsByClassName('score')[0].style.visibility = 'hidden'; </br>
+} </br></br>
+
+<p>&#60/script&#62</p>
+
+<p>&#60/body&#62</p>
+
+<p>&#60/html&#62</p>
+
+</div>
+
+<script src="quizCrafterAngular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+</body>
+
+</html>

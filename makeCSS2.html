@@ -1,0 +1,88 @@
+<html>
+<head>
+<link rel= "stylesheet" type="text/css" href="quizCrafterCSS.css"></link>
+</head>
+
+<body>
+<div id = "quizMakerForeground">
+
+<h1>Adjust the Style</h1>
+
+<h3 class = "test" ng-style = "savedPara()">Question area reference: 
+Background: red ({{pbRed}}), blue ({{pbBlue}}), green ({{pbGreen}}).  
+Text: red ({{ptRed}}), blue ({{ptBlue}}), green ({{ptGreen}}).</h3>
+
+<h4 class = "answerArea">
+<div class = "sampleAnswers">Sample of the answer area.</div>
+<div class = "sampleAnswers">Where multiple choice Answers</div>
+<div class = "sampleAnswers">may appear in your quiz depending</div>
+<div class = "sampleAnswers">on the number you choose.</div>
+</h4>
+
+<!--Answer Area Background-->
+<h2>Answer Area Background</h2>
+<div class = 'paragraphBox'>Answer area background <span style="color:red">
+(red value: 0-255)</span>:</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(abRed, 'abRed', 0, 'answerArea', 10)">--</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(abRed, 'abRed', 0, 'answerArea', 250)">-</div>
+<div class = 'inputBox' ng-model= 'abRed'>{{abRed}}</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(abRed, 'abRed', 0, 'answerArea', 250)">+</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(abRed, 'abRed', 0, 'answerArea', 10)">++</div>
+
+<div class = 'paragraphBox'>Answer area background <span style="color:blue">
+(blue value: 0-255)</span>:</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(abBlue, 'abBlue', 1, 'answerArea', 10)">--</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(abBlue, 'abBlue', 1, 'answerArea', 250)">-</div>
+<div class = 'inputBox' ng-model= "abBlue">{{abBlue}}</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(abBlue, 'abBlue', 1, 'answerArea', 250)">+</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(abBlue, 'abBlue', 1, 'answerArea', 10)">++</div>
+
+<div class = 'paragraphBox'>Answer area background <span style="color:green">
+(green value: 0-255)</span>: </div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(abGreen, 'abGreen', 2, 'answerArea', 10)">--</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(abGreen, 'abGreen', 2, 'answerArea', 250)">-</div>
+<div class = 'inputBox' ng-model= "abGreen">{{abGreen}}</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(abGreen, 'abGreen', 2, 'answerArea', 250)">+</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(abGreen, 'abGreen', 2, 'answerArea', 10)">++</div>
+
+<!--Answer Area Text Color-->
+<h2>Answer Area Text</h2>
+<div class = 'paragraphBox'>Answer area text <span style="color:red">
+(red value: 0-255)</span>:</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(atRed, 'atRed', 3, 'answerArea', 10)">--</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(atRed, 'atRed', 3, 'answerArea', 250)">-</div>
+<div class = 'inputBox' ng-model= 'atRed'>{{atRed}}</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(atRed, 'atRed', 3, 'answerArea', 250)">+</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(atRed, 'atRed', 3, 'answerArea', 10)">++</div>
+
+<div class = 'paragraphBox'>Answer area text <span style="color:blue">
+(blue value: 0-255)</span>:</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(atBlue, 'atBlue', 4, 'answerArea', 10)">--</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(atBlue, 'atBlue', 4, 'answerArea', 250)">-</div>
+<div class = 'inputBox' ng-model ="atBlue">{{atBlue}}</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(atBlue, 'atBlue', 4, 'answerArea', 250)">+</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(atBlue, 'atBlue', 4, 'answerArea', 10)">++</div>
+
+
+<div class = 'paragraphBox'>Answer area text <span style="color:green">
+(green value: 0-255)</span>: </div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(atGreen, 'atGreen', 5, 'answerArea', 10)">--</div>
+<div class = 'minusBox' ng-Mousedown= "toggleColorDecrease(atGreen, 'atGreen', 5, 'answerArea', 250)">-</div>
+<div class = 'inputBox' ng-model= "atGreen">{{atGreen}}</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(atGreen, 'atGreen', 5, 'answerArea', 250)">+</div>
+<div class = 'addBox' ng-Mousedown= "toggleColorIncrease(atGreen, 'atGreen', 5, 'answerArea', 10)">++</div>
+
+<div class = 'buttonContainer'>
+<div class = 'buttonRight' ng-click="page('makeCSS.html')"> Back </div>
+<div class = 'buttonLeft' ng-click="page('questionairre.html')"> Continue </div>
+</div>
+
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script src="quizCrafterAngular.js"></script>
+</body>
+
+</html>

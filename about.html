@@ -1,0 +1,84 @@
+<html>
+<head>
+<link rel= "stylesheet" type="text/css" href="quizCrafterCSS.css"></link>
+</head>
+
+<body>
+<div id = "quizMakerForeground">
+
+<h1>About Quiz Maker</h1>
+<section><u>Purpose</u></section>
+Quiz Maker is a single-page application meant to assist individuals that want to 
+create basic quizzes for their website and/or personal use.  The quiz is coded in 
+a way that those with a basic understanding of HTML/CSS/Javascript can modify values 
+to further personalize different aspects to suit their personal needs.  This app is a simple, 
+but effective solution for teachers, or even students, seeking to create interactive study 
+guides that they can share with others.
+
+<section><u>I do not own a website, can I still use Quiz Maker?</u></section>
+Yes.  By saving the completed file as a .html extension file, you can open your quiz in 
+your internet browser and use it locally.  Sharing the file with others will allow them 
+to take your quiz as well.  Quiz Maker makes sharing study guides with peers quick and 
+easy.
+
+<section><u>How do I get started?</u></section>
+Download all the files in the repository at my <a href = "https://github.com/Yaulthoon/Quiz-Maker"> 
+GitHub</a>.  Make sure to save all the files in the same folder on your computer or Cloud storage.  
+After downloading all the files, simply open the index.html file in your browser to get started.</br>
+<Strong><span style = "color: red">Warning:  Quiz Maker uses local Ajax calls.  The only confirmed 
+browsers I know of that support this behavior are <u>Firefox and Microsoft Edge.</u></span></strong></br> 
+If you want to use this app, then please be aware that not all browsers currently support it.  
+I may host the app on a server eventually, but until then, 
+please be aware of this potential issue.
+
+<section><u>Will my quiz only work on certain browsers as well?</u></section>
+The quiz provided to you by this app will work in all browsers.
+
+<section><u>Will my quiz work on my smartphone?</u></section>
+Yes.  Make sure to save the file directly to your phone and open the file in the browser 
+of your choice.  The process is the same as opening it on a computer.  Your quiz follows 
+responsive web design principles and will scale to the dimensions of your screen.  For 
+best results, switch your phone to landscape (wide) mode.
+
+<section><u>Will the quiz score itself?</u></section>
+Yes, the quiz will provide a score upon completion.  It will also highlight questions that 
+are answered incorrectly and display the correct choice.  This helps the user identify 
+which questions that they may need to review.  
+
+<section><u>One of the answers to one of my questions is incorrect.  Can I fix this?</u></section>
+Yes, you can.  This requires a brief explanation of a basic Javascript concept, but this 
+solution does not require you to familiarize yourself with Javascript at all.
+Open your html document in a text editor such as Notepad, Notepad++, Atom, or etcetera.  
+Underneath the &#60script&#62 tag, find the phrase "const key" that contains a list of 
+numbers from 0 - 3.  This is what is known as an array that contains numbers, technically 
+string versions of numbers, that form an answer key.  0 being the first answer and 3 being 
+the final answer if your question contains 4 possible choices.
+Simply identify the number of the question that you want to adjust and find its corresponding 
+answer in the array.  This means if you wanted to adjust the answer to question #5, then you 
+would find the fifth element in the array and modify it to the new answer. </br>
+<strong>
+Example:  const key = ["1","2","0","0","3"].  "3" would be the fifth element in the array.
+</strong>
+
+<section><u>Can I use the code provided by the app as part of a school-related project?</u></section>
+If you plan to use the quiz you create as part of a school-related project related to website 
+development, please be sure to properly attribute this app as a comment in your html code.  
+You can simply designate a landing site of <span style = "color: blue"> 
+https://github.com/Yaulthoon/Quiz-Maker</span> at the bottom of your code.
+
+<section><u>I encountered an error or bug when using this program.</u></section>
+Please feel free to contact me via <a href= "mailto:dickensb15@ecualumni.ecu.edu">
+e-mail.</a>  Please use Quiz Maker as part of your subject line.
+Please describe the error you encountered and possible steps that could 
+be taken to reproduce the problem.  Please note that I do not open attachments or click links 
+from unknown sources, so please do not send these to me as part of your e-mail.
+
+<div class = 'button'  ng-click = "page('initial.html')"> Home </div>
+</div>
+<script src="quizCrafterAngular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+</body>
+
+</html>
